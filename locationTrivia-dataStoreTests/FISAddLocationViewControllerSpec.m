@@ -1,13 +1,13 @@
 //
 //  FISAddLocationViewControllerSpec.m
-//  locationTrivia-dataStore
+//  locationTrivia-DataManager
 //
 //  Created by Tom OMalley on 9/3/15.
 //  Copyright 2015 Joe Burgess. All rights reserved.
 //
 
 #import "FISAddLocationViewController.h"
-#import "FISLocationsDataStore.h"
+#import "FISLocationsDataManager.h"
 
 #import <Specta/Specta.h>
 #import <Expecta/Expecta.h>
@@ -110,19 +110,19 @@ describe(@"FISAddLocationViewController", ^{
             expect(saveButton).toNot.beNil();
         });
         
-        it(@"saves a new FISLocation to the datastore", ^{
-            FISLocationsDataStore *dataStore = [FISLocationsDataStore sharedLocationsDataStore];
+        it(@"saves a new FISLocation to the DataManager", ^{
+            FISLocationsDataManager *DataManager = [FISLocationsDataManager sharedLocationsDataManager];
             
-            NSInteger dataStoreCountPreSave = dataStore.locations.count;
+            NSInteger DataManagerCountPreSave = DataManager.locations.count;
             [tester tapViewWithAccessibilityLabel:@"saveButton"];
             [tester waitForTimeInterval:0.5];
-            NSInteger dataStoreCountPostSave = dataStore.locations.count;
+            NSInteger DataManagerCountPostSave = DataManager.locations.count;
             
-            expect(dataStoreCountPostSave).to.equal(dataStoreCountPreSave + 1);
+            expect(DataManagerCountPostSave).to.equal(DataManagerCountPreSave + 1);
         });
         
         it(@"saves a new FISLocation with actual user input", ^{
-            FISLocationsDataStore *dataStore = [FISLocationsDataStore sharedLocationsDataStore];
+            FISLocationsDataManager *DataManager = [FISLocationsDataManager sharedLocationsDataManager];
             
             NSString *testLocationName = @"Test Location";
             NSString *testLocationLat = @"40.7050";
@@ -134,7 +134,7 @@ describe(@"FISAddLocationViewController", ^{
             
             [tester tapViewWithAccessibilityLabel:@"saveButton"];
             [tester waitForTimeInterval:0.5];
-            FISLocation *savedLocation = [dataStore.locations lastObject];
+            FISLocation *savedLocation = [DataManager.locations lastObject];
             
             expect(savedLocation.name).to.equal(testLocationName);
             expect(savedLocation.latitude).to.equal(@([testLocationLat integerValue]));

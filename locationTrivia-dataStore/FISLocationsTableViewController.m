@@ -20,7 +20,7 @@
 {
     [super viewDidLoad];
     
-    self.store = [FISLocationsDataStore sharedLocationsDataStore];
+    self.locationsDataManager = [FISLocationsDataManager sharedLocationsDataManager];
 
     [self setupAccessibiltyLabels];
     [self generateTestData];
@@ -53,7 +53,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.store.locations count];
+    return [self.locationsDataManager.locations count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -61,7 +61,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"rightCell" forIndexPath:indexPath];
 
 
-    FISLocation *location = self.store.locations[indexPath.row];
+    FISLocation *location = self.locationsDataManager.locations[indexPath.row];
 
     cell.textLabel.text = location.name;
 
@@ -78,7 +78,7 @@
     if (![segue.identifier isEqualToString:@"addLocation"]) {
         
         NSIndexPath *ip = [self.tableView indexPathForSelectedRow];
-        FISLocation *location = self.store.locations[ip.row];
+        FISLocation *location = self.locationsDataManager.locations[ip.row];
         
         FISTriviaTableViewController *triviaVC = segue.destinationViewController;
         
@@ -117,7 +117,7 @@
     
     [location3.trivia addObjectsFromArray:@[trivia3A]];
     
-    self.store.locations = [NSMutableArray arrayWithArray:@[location2, location1, location3]];
+    self.locationsDataManager.locations = [NSMutableArray arrayWithArray:@[location2, location1, location3]];
 }
 
 @end

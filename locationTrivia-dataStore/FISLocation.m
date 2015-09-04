@@ -11,8 +11,8 @@
 @implementation FISLocation
 
 -(id)initWithName:(NSString *)name
-         latitude:(NSNumber *)latitude
-        longitude:(NSNumber *)longitude
+         Latitude:(NSNumber *)latitude
+        Longitude:(NSNumber *)longitude
 {
     self = [super init];
     if (self) {
@@ -27,7 +27,7 @@
 
 - (instancetype)init
 {
-    return [self initWithName:@"" latitude:@0 longitude:@0];
+    return [self initWithName:@"" Latitude:@0 Longitude:@0];
 }
 
 - (NSString *)shortenedNameToLength:(NSInteger)length

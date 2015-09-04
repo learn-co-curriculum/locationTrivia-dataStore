@@ -8,7 +8,7 @@
 
 #import "FISAddLocationViewController.h"
 #import "FISLocation.h"
-#import "FISLocationsDataStore.h"
+#import "FISLocationsDataManager.h"
 
 @interface FISAddLocationViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
@@ -51,8 +51,12 @@
 - (IBAction)saveButtonTapped:(id)sender {
     NSNumber *latitude = [NSNumber numberWithInteger:[self.latitudeField.text integerValue]];
     NSNumber *longitude = [NSNumber numberWithInteger:[self.longitudeField.text integerValue]];
-    FISLocation *newLocation = [[FISLocation alloc] initWithName:self.nameField.text Latitude:latitude Longitude:longitude];
-    [[FISLocationsDataStore sharedLocationsDataStore].locations addObject:newLocation];
+    FISLocation *newLocation =
+        [[FISLocation alloc] initWithName:self.nameField.text
+                                 Latitude:latitude
+                                Longitude:longitude];
+
+    [[FISLocationsDataManager sharedLocationsDataManager].locations addObject:newLocation];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

@@ -17,8 +17,8 @@
 @property (strong, nonatomic) NSMutableArray *trivia;
 
 - (id) initWithName:(NSString *)name
-           latitude:(NSNumber *)latitude
-          longitude:(NSNumber *)longitude;
+           Latitude:(NSNumber *)latitude
+          Longitude:(NSNumber *)longitude;
 
 - (NSString *)shortenedNameToLength:(NSInteger)length;
 - (BOOL)verifyLocation;
