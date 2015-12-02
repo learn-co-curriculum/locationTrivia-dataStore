@@ -91,3 +91,5 @@ This next lab already has these steps set up for you. Take a moment to look over
   5. Add another `UIButton` titled "Cancel", which simply dismisses the addLocationVC in case someone navigates in there, but doesn't want to save a new location.
     - You guessed it, set it's accessibilityLabel to `@"cancelButton"`.
   6. Run your application and make some new locations through the simulator. Watch the data get passed between your view controllers. **Run the tests!**
+
+<a href='https://learn.co/lessons/locationTrivia-dataStore' data-visibility='hidden'>View this lesson on Learn.co</a>
