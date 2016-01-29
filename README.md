@@ -92,4 +92,4 @@ This next lab already has these steps set up for you. Take a moment to look over
     - You guessed it, set it's accessibilityLabel to `@"cancelButton"`.
   6. Run your application and make some new locations through the simulator. Watch the data get passed between your view controllers. **Run the tests!**
 
-<a href='https://learn.co/lessons/locationTrivia-dataStore' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/locationTrivia-dataStore' title='DEPRECATED Oct 13, 2015 - Mark Murray'>DEPRECATED Oct 13, 2015 - Mark Murray</a> on Learn.co and start learning to code for free.</p>
